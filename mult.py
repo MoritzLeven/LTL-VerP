@@ -272,9 +272,9 @@ def write_transition_system(transition_system, address):
             tmp += ts + ', '
         f.write('BUCHI: {' + tmp[:-2] + '};\n')
     tmp = ''
-    for ts in transition_system.states:
+    for ts in transition_system.cut_points:#states:
         tmp += ts + ', '
-    # f.write('CUTPOINT: {' + tmp[:-2] + '};\n\n')
+    f.write('CUTPOINT: {' + tmp[:-2] + '};\n\n')
     if transition_system.pre_condition is not None:
         f.write(f"PRE: {transition_system.pre_condition};\n")
     for transition in transition_system.transitions:
